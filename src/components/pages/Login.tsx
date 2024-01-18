@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+import { auth } from "@/firebase";
 
 const Login = () => {
   const [err, setErr] = useState(false);
@@ -22,7 +23,7 @@ const Login = () => {
   return (
     <div className="formContainer">
       <div className="formWrapper">
-        <span className="logo">Lama Chat</span>
+        <span className="logo">Lio Chat</span>
         <span className="title">Login</span>
         <form onSubmit={handleSubmit}>
           <input type="email" placeholder="email" />

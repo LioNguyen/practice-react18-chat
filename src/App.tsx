@@ -1,11 +1,12 @@
-import "./style.scss";
+import "@/style.scss";
 
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { AuthContext } from "./context/AuthContext";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+
+import Home from "@/components/pages/Home";
+import Login from "@/components/pages/Login";
+import Register from "@/components/pages/Register";
+import { AuthContext } from "@/context/AuthContext";
 
 function App() {
   const { currentUser } = useContext(AuthContext);

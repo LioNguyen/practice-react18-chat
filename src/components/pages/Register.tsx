@@ -1,11 +1,11 @@
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useState } from "react";
-import { auth, db, storage } from "../firebase";
-import { doc, setDoc } from "firebase/firestore";
-
-import Add from "../img/addAvatar.png";
 import { useNavigate } from "react-router-dom";
+
+import Add from "@/assets/img/addAvatar.png";
+import { auth, db, storage } from "@/firebase";
 
 const Register = () => {
   const [err, setErr] = useState(false);
@@ -79,7 +79,7 @@ const Register = () => {
   return (
     <div className="formContainer">
       <div className="formWrapper">
-        <span className="logo">Lama Chat</span>
+        <span className="logo">Lio Chat</span>
         <span className="title">Register</span>
         <form onSubmit={handleSubmit}>
           <input required type="text" placeholder="display name" />

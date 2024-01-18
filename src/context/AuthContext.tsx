@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
-import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
+
+import { auth } from "@/firebase";
 
 export const AuthContext = createContext({
   currentUser: null,
@@ -13,14 +14,17 @@ export const AuthContextProvider = ({
 }) => {
   const [currentUser, setCurrentUser] = useState<any>({});
 
+  if (process.env.NODE_ENV === "development") {
+    console.log("🚀 @log ~ currentUser:", currentUser);
+  }
+
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (user) => {
+    const unSubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
-      console.log(user);
     });
 
     return () => {
-      unsub();
+      unSubscribe();
     };
   }, []);
 

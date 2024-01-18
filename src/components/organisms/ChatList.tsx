@@ -1,11 +1,12 @@
 import { doc, onSnapshot } from "firebase/firestore";
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../context/AuthContext";
-import { ChatContext } from "../context/ChatContext";
-import { db } from "../firebase";
 
-const Chats = () => {
-  const [chats, setChats] = useState([]);
+import { AuthContext } from "@/context/AuthContext";
+import { ChatContext } from "@/context/ChatContext";
+import { db } from "@/firebase";
+
+const ChatList = () => {
+  const [chats, setChats] = useState(null);
 
   console.log("🚀 @log ~ Chats ~ chats:", chats);
 
@@ -34,6 +35,10 @@ const Chats = () => {
     dispatch({ type: "CHANGE_USER", payload: u });
   };
 
+  if (!chats) {
+    return <></>;
+  }
+
   return (
     <div className="chats">
       {Object.entries(chats)
@@ -55,4 +60,4 @@ const Chats = () => {
   );
 };
 
-export default Chats;
+export default ChatList;

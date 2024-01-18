@@ -1,12 +1,12 @@
-import Chat from "../components/Chat";
-import Sidebar from "../components/Sidebar";
+import ChatBox from "@/components/templates/ChatBox";
+import Sidebar from "@/components/templates/Sidebar";
 
 const Home = () => {
   return (
     <div className="home">
       <div className="container">
         <Sidebar />
-        <Chat />
+        <ChatBox />
       </div>
     </div>
   );
